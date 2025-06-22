@@ -2,9 +2,9 @@
 require __DIR__ . '/vendor/autoload.php';
 
 // Config
-$botToken = getenv('TELEGRAM_BOT_TOKEN');
-$binanceRef = getenv('BINANCE_REF_LINK');
-$adminId = getenv('ADMIN_TELEGRAM_ID'); // For payout approvals
+$botToken = getenv('7989868027:AAHHLhJKNg3dqqbVsRr1tgGBp4C1W2ielpk');
+$binanceRef = getenv('https://www.binance.com/activity/referral-entry/CPA?ref=CPA_00K0JPWHX7');
+$adminId = getenv('@JustPositive1'); // For payout approvals
 
 // Init files
 $usersFile = __DIR__ . '/users.json';
@@ -41,7 +41,7 @@ if ($chatId && $userId) {
     // Handle commands
     switch (strtolower($text)) {
         case '/start':
-            reply($chatId, "🤑 *Crypto Affiliate Bot*\nEarn \$20-50 per sign-up!\n\n🔗 Your link:\n`https://your-url.com/ref={$users[$userId]['ref_code']}`");
+            reply($chatId, "🤑 *Crypto Affiliate Bot*\nEarn \$20-50 per sign-up!\n\n🔗 Your link:\n`https://www.binance.com/activity/referral-entry/CPA?ref=CPA_00K0JPWHX7/ref={$users[$userId]['CPA_00K0JPWHX7']}`");
             break;
 
         case '/stats':
