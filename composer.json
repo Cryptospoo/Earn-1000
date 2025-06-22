@@ -1,5 +1,5 @@
 {
-    "name": "crypto-affiliate-bot",
+	"name": "muthuraj/Earn-1000",    
     "require": {
         "php": "^8.2",
         "ext-curl": "*",
