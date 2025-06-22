@@ -4,6 +4,7 @@
         "php": "^8.2",
         "ext-curl": "*",
         "ext-json": "*",
+        "ext-zip": "*",
         "paypal/paypalhttp": "^1.0"
     },
     "config": {
