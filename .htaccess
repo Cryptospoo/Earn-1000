@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-f
@@ -9,4 +10,17 @@
     Require all denied
 </Files>
 
+=======
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+<Files "*.json">
+    Require all denied
+</Files>
+
+>>>>>>> 8c4856822c51b0d23255f688f74bd7cfa5490d8b
 ErrorDocument 403 "Unauthorized access"
