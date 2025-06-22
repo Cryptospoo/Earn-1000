@@ -1,0 +1,15 @@
+**🔧 Environment Variables Needed**
+| Variable | Purpose |
+|----------|---------|
+| `TELEGRAM_BOT_TOKEN` | From @BotFather |
+| `BINANCE_REF_LINK` | Your affiliate link |
+| `ADMIN_TELEGRAM_ID` | Your Telegram ID for payouts |
+
+### **🚀 Deployment Steps**
+1. Create all 8 files exactly as shown
+2. Upload to GitHub
+3. Deploy on Render.com (Docker)
+4. Set webhook
+5. Start sharing referral links!
+
+Need help? Open an issue!

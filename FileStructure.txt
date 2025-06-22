@@ -1,0 +1,9 @@
+.
+├── .htaccess                 # Security rules
+├── Dockerfile                # Deployment config
+├── composer.json             # PHP dependencies
+├── index.php                 # Main bot logic
+├── users.json                # User data storage
+├── transactions.json         # Payout records
+├── error.log                 # Error tracking
+└── README.md                 # Deployment guide
