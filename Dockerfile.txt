@@ -1,0 +1,26 @@
+FROM php:8.2-apache
+
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+    libzip-dev zip unzip libcurl4-openssl-dev \
+    && docker-php-ext-install zip curl
+
+# Configure Apache
+RUN a2enmod rewrite headers && \
+    echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
+# Set up app directory
+WORKDIR /var/www/html
+COPY . .
+
+# Fix permissions
+RUN chown -R www-data:www-data /var/www/html && \
+    chmod 660 users.json transactions.json error.log
+
+# Install PHP dependencies
+RUN curl -sS https://getcomposer.org/installer | php -- \
+    --install-dir=/usr/local/bin --filename=composer && \
+    composer install --no-dev --optimize-autoloader
+
+EXPOSE 80
+CMD ["apache2-foreground"]

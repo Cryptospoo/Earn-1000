@@ -1,0 +1,13 @@
+{
+    "name": "crypto-affiliate-bot",
+    "require": {
+        "php": "^8.2",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "paypal/paypalhttp": "^1.0"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "platform-check": false
+    }
+}
