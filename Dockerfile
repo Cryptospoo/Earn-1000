@@ -1,26 +1,38 @@
 FROM php:8.2-apache
 
-# Install dependencies
+# 1. Install system dependencies
 RUN apt-get update && apt-get install -y \
-    libzip-dev zip unzip libcurl4-openssl-dev \
-    && docker-php-ext-install zip curl
+    libzip-dev \
+    zip \
+    unzip \
+    libcurl4-openssl-dev \
+    git \
+    && rm -rf /var/lib/apt/lists/*
 
-# Configure Apache
-RUN a2enmod rewrite headers && \
-    echo "ServerName localhost" >> /etc/apache2/apache2.conf
+# 2. Install PHP extensions
+RUN docker-php-ext-install zip curl
 
-# Set up app directory
-WORKDIR /var/www/html
+# 3. Configure Apache
+RUN a2enmod rewrite
+
+# 4. Install Composer (with retry logic)
+RUN curl -sS https://getcomposer.org/installer | php -- \
+    --install-dir=/usr/local/bin \
+    --filename=composer \
+    --version=2.6.5
+
+# 5. Copy only necessary files first
+COPY composer.json composer.lock ./
+
+# 6. Install dependencies (with cache)
+RUN composer install --no-dev --no-interaction --optimize-autoloader
+
+# 7. Copy remaining files
 COPY . .
 
-# Fix permissions
+# 8. Fix permissions
 RUN chown -R www-data:www-data /var/www/html && \
     chmod 660 users.json transactions.json error.log
-
-# Install PHP dependencies
-RUN curl -sS https://getcomposer.org/installer | php -- \
-    --install-dir=/usr/local/bin --filename=composer && \
-    composer install --no-dev --optimize-autoloader
 
 EXPOSE 80
 CMD ["apache2-foreground"]
