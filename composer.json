@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 {
     "name": "cryptospoo/earn-1000-bot",
-    "description": "Earn-1000 - Telegram Crypto Affiliate Bot (Earn $1000+/month)",
+    "description": "Telegram Crypto Affiliate Bot",
     "type": "project",
     "require": {
         "php": "^8.2",
@@ -13,31 +12,5 @@
     "config": {
         "optimize-autoloader": true,
         "platform-check": false
-    },
-    "authors": [{
-        "name": "cryptospoo",
-        "role": "Developer"
-    }]
+    }
 }
-=======
-{
-    "name": "cryptospoo/earn-1000-bot",
-    "description": "Earn-1000 - Telegram Crypto Affiliate Bot (Earn $1000+/month)",
-    "type": "project",
-    "require": {
-        "php": "^8.2",
-        "ext-curl": "*",
-        "ext-json": "*",
-        "ext-zip": "*",
-        "paypal/paypalhttp": "^1.0"
-    },
-    "config": {
-        "optimize-autoloader": true,
-        "platform-check": false
-    },
-    "authors": [{
-        "name": "cryptospoo",
-        "role": "Developer"
-    }]
-}
->>>>>>> 8c4856822c51b0d23255f688f74bd7cfa5490d8b
