@@ -2,6 +2,7 @@
     "name": "cryptospoo/earn-1000-bot",
     "description": "Telegram Crypto Affiliate Bot",
     "type": "project",
+    "license": "proprietary",
     "require": {
         "php": "^8.2",
         "ext-curl": "*",
