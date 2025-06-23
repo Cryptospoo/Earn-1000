@@ -1,4 +1,13 @@
-<<<<<<< HEAD
+<?php
+// Health check endpoint for Render.com
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_SERVER['REQUEST_URI'] === '/health') {
+    header('Content-Type: text/plain');
+    echo 'OK';
+    exit;
+}
+
+// Rest of your existing bot code...
+?>
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
