@@ -1,33 +1,26 @@
 FROM php:8.2-apache
 
-# 1. Install system dependencies
+# Install system dependencies
 RUN apt-get update && \
     apt-get install -y \
     libzip-dev \
     zip \
     unzip \
-    libcurl4-openssl-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# 2. Install PHP extensions
+# Install PHP extensions
 RUN docker-php-ext-install zip
 
-# 3. Configure Apache
+# Enable Apache modules
 RUN a2enmod rewrite headers
 
-# 4. Install Composer
+# Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# 5. Copy only composer files first (better caching)
-COPY composer.json composer.lock ./
-
-# 6. Install dependencies
-RUN composer install --no-dev --no-interaction --optimize-autoloader
-
-# 7. Copy remaining files
+# Copy files
 COPY . .
 
-# 8. Fix permissions (updated with your requested changes)
+# Fix permissions
 RUN chown -R www-data:www-data /var/www/html && \
     [ -f users.json ] || touch users.json && \
     [ -f transactions.json ] || touch transactions.json && \
