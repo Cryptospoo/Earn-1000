@@ -9,4 +9,6 @@
     Require all denied
 </Files>
 
+<<<<<<< HEAD
 ErrorDocument 403 "Unauthorized access"
+
