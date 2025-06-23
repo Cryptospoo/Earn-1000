@@ -141,6 +141,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_SERVER['REQUEST_URI'] === '/health
     echo 'OK';
     exit;
 }
+    // Option 1: If checking message text
+if ($text === '/start') {
+    sendWelcomeMessage();
+}
+
+// Option 2: If comparing variables
+if ($user_id === $admin_id) {
+    grantAdminAccess();
+}
+
+// Option 3: If you accidentally left debugging code
+// Just remove the standalone === completely
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
