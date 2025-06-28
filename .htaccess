@@ -1,5 +1,9 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
+
+    # Allow favicon
+    RewriteRule ^favicon\.ico$ - [L]
+
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^ index.php [QSA,L]
@@ -8,6 +12,5 @@
 <Files "*.json">
     Require all denied
 </Files>
-# Allow favicon
-RewriteRule ^favicon.ico$ - [L]
+
 ErrorDocument 403 "Unauthorized access"
