@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Crypto Affiliate Bot
 
 🚀 Earn $1,000+/month with automated crypto referrals
@@ -38,4 +37,3 @@
 3. Set webhook:
    ```bash
    curl "https://api.telegram.org/bot<7989868027:AAHHLhJKNg3dqqbVsRr1tgGBp4C1W2ielpk>/setWebhook?url=<RENDER_URL>"
->>>>>>> 8c4856822c51b0d23255f688f74bd7cfa5490d8b
